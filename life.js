@@ -7,7 +7,7 @@ var life = function(o) {
     // scope
     var that = this;
     // static
-    var version = "0.0.1";
+    var version = "0.0.2";
     // private
     var totalSec = 0;
     var timer;
