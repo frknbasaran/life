@@ -1,5 +1,5 @@
 ![Logo](http://emblemsbf.com/img/548.jpg)
-# life
+# life [![Code Climate](https://codeclimate.com/github/erayarslan/life/badges/gpa.png)](https://codeclimate.com/github/erayarslan/life)
 such w0w life!
 
 ## usage
