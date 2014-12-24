@@ -1,10 +1,13 @@
-// dirty life cod3
+/**
+ * @module life
+ * author eray arslan
+ */
 
-function life(o) {
+module.exports = function(o) {
     // scope
     var that = this;
     // static
-    const version = 0.1;
+    const version = "0.0.1";
     // private
     var totalSec = 0;
     var timer = undefined;
@@ -12,18 +15,21 @@ function life(o) {
         //
     };
     // public
-    this.name = o.name || "";
-    this.surname = o.surname || "";
+    this.name = o.name;
+    this.surname = o.surname;
     this.birth = new Date(); // 1min = 1year
     this.girlfriend = undefined;
     this.boyfriend = undefined;
-    this.sex = o.sex || "";
+    this.sex = o.sex;
     //
     this.getFullName = function() {
         return this.name + " " + this.surname;
     };
     this.getAge = function() {
-        return Math.floor(Math.floor((new Date() - this.birth) / 1000) / 60);
+        var now = new Date();
+        var diffMs = now - this.birth;
+        var diffSec = Math.floor(diffMs / 1000);
+        return Math.floor(diffSec / 60);
     };
     this.live = function() {
         // under construction
@@ -56,20 +62,3 @@ function life(o) {
         return this.boyfriend;
     };
 }
-
-var eray = new life({
-    name    : "eray",
-    surname : "arslan",
-    sex     : "male"
-});
-
-// sadece kız olarak nefes alıyo işte
-var just_a_girl = new life({
-    sex     : "female"
-});
-
-eray.setGirlFriend(just_a_girl);
-
-console.log(just_a_girl.getBoyFriend().getFullName()); // output : eray arslan
-
-// eray.live();
