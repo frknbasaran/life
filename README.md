@@ -1,4 +1,2 @@
-life
-====
-
+# life
 such w0w life!
