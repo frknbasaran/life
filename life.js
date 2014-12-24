@@ -7,7 +7,7 @@ var life = function(o) {
     // scope
     var that = this;
     // static
-    var version = "0.0.3";
+    var version = "0.1.0";
     // private
     var totalSec = 0;
     var timer;
@@ -15,13 +15,13 @@ var life = function(o) {
         //
     };
     // public
-    this.name = o.name;
-    this.surname = o.surname;
+    this.name = o.name || "john";
+    this.surname = o.surname || "smith";
     this.birth = new Date(); // 1min = 1year
-    this.soulMate;
-    this.sex = o.sex;
-    this.children = [];
-    this.parent = {};
+    this.soulMate; // :'(
+    this.sex = o.sex || "male"; // first human is MALE!
+    this.children = []; // u need soulMate
+    this.parent = {}; // u are a child of God ;) lucky human
     //
     this.getFullName = function() {
         return this.name + " " + this.surname;
@@ -48,7 +48,11 @@ var life = function(o) {
             if((this.sex === "male" && o.sex === "female") || (this.sex == "female" && o.sex === "male")) {
                 this.soulMate = o;
                 o.soulMate = this;
+            } else {
+                throw new Error("homosexuality is not yet active :/");
             }
+        } else {
+            throw new Error("u need human dude!");
         }
     };
     this.makeLove /** f*ck **/ = function() {
@@ -57,8 +61,10 @@ var life = function(o) {
     this.marriage = function() {
         if(this.sex === "female") {
             this.surname = this.soulMate.surname;
-        } else {
+        } else if(this.sex === "male") {
             this.soulMate.surname = this.surname;
+        } else {
+            throw new Error("wtf are u doin'?");
         } this.children = this.soulMate.children;
     };
 };
