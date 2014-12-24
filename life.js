@@ -7,7 +7,7 @@ var life = function(o) {
     // scope
     var that = this;
     // static
-    var version = "0.0.2";
+    var version = "0.0.3";
     // private
     var totalSec = 0;
     var timer;
@@ -18,12 +18,17 @@ var life = function(o) {
     this.name = o.name;
     this.surname = o.surname;
     this.birth = new Date(); // 1min = 1year
-    this.girlfriend = undefined;
-    this.boyfriend = undefined;
+    this.soulMate;
     this.sex = o.sex;
+    this.children = [];
+    this.parent = {};
     //
     this.getFullName = function() {
         return this.name + " " + this.surname;
+    };
+    this.setParent = function(o) {
+        this.parent.father = o.father;
+        this.parent.mother = o.mother;
     };
     this.getAge = function() {
         var now = new Date();
@@ -38,31 +43,23 @@ var life = function(o) {
     this.death = function() {
         clearInterval(timer);
     };
-    this.setGirlFriend = function(o) {
-        console.log(this);
-        if(o instanceof life && this.sex === "male" && o.sex === "female") {
-            this.girlfriend = o;
-            o.boyfriend = this;
-        } else {
-            throw new Error("i-ih :'(");
+    this.setSoulMate = function(o) {
+        if(o instanceof life) {
+            if((this.sex === "male" && o.sex === "female") || (this.sex == "female" && o.sex === "male")) {
+                this.soulMate = o;
+                o.soulMate = this;
+            }
         }
     };
-    this.getGirlFriend = function() {
-        return this.girlfriend;
+    this.makeLove /** f*ck **/ = function() {
+        // under construction
     };
-    this.setBoyFriend = function(o) {
-        if(o instanceof life && this.sex === "female" && o.sex === "male") {
-            this.boyfriend = o;
-            o.girlfriend = this;
+    this.marriage = function() {
+        if(this.sex === "female") {
+            this.surname = this.soulMate.surname;
         } else {
-            throw new Error("i-ih :'(");
-        }
-    };
-    this.getBoyFriend = function() {
-        return this.boyfriend;
-    };
-    this.getVersion = function() {
-        return version;
+            this.soulMate.surname = this.surname;
+        } this.children = this.soulMate.children;
     };
 };
 
