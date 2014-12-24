@@ -7,10 +7,10 @@ module.exports = function(o) {
     // scope
     var that = this;
     // static
-    const version = "0.0.1";
+    var version = "0.0.1";
     // private
     var totalSec = 0;
-    var timer = undefined;
+    var timer;
     var time = function() {
         //
     };
@@ -37,10 +37,9 @@ module.exports = function(o) {
     };
     this.death = function() {
         clearInterval(timer);
-        timer = undefined;
     };
     this.setGirlFriend = function(o) {
-        if(o instanceof life && this.sex === "male" && o.sex === "female") {
+        if(o instanceof that && this.sex === "male" && o.sex === "female") {
             this.girlfriend = o;
             o.boyfriend = this;
         } else {
@@ -51,7 +50,7 @@ module.exports = function(o) {
         return this.girlfriend;
     };
     this.setBoyFriend = function(o) {
-        if(o instanceof life && this.sex === "female" && o.sex === "male") {
+        if(o instanceof that && this.sex === "female" && o.sex === "male") {
             this.boyfriend = o;
             o.girlfriend = this;
         } else {
@@ -61,4 +60,7 @@ module.exports = function(o) {
     this.getBoyFriend = function() {
         return this.boyfriend;
     };
-}
+    this.getVersion = function() {
+        return version;
+    };
+};
