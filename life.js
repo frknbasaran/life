@@ -3,7 +3,7 @@
  * author eray arslan
  */
 
-module.exports = function(o) {
+var life = function(o) {
     // scope
     var that = this;
     // static
@@ -39,7 +39,8 @@ module.exports = function(o) {
         clearInterval(timer);
     };
     this.setGirlFriend = function(o) {
-        if(o instanceof that && this.sex === "male" && o.sex === "female") {
+        console.log(this);
+        if(o instanceof life && this.sex === "male" && o.sex === "female") {
             this.girlfriend = o;
             o.boyfriend = this;
         } else {
@@ -50,7 +51,7 @@ module.exports = function(o) {
         return this.girlfriend;
     };
     this.setBoyFriend = function(o) {
-        if(o instanceof that && this.sex === "female" && o.sex === "male") {
+        if(o instanceof life && this.sex === "female" && o.sex === "male") {
             this.boyfriend = o;
             o.girlfriend = this;
         } else {
@@ -64,3 +65,5 @@ module.exports = function(o) {
         return version;
     };
 };
+
+module.exports = life;
