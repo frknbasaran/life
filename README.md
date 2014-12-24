@@ -2,10 +2,16 @@
 # life [![Code Climate](https://codeclimate.com/github/erayarslan/life/badges/gpa.png)](https://codeclimate.com/github/erayarslan/life)
 such w0w life!
 
+## install
+
+```
+npm install lifejs
+```
+
 ## usage
 
 ```js
-// idk
+var life = require("lifejs");
 ```
 
 ## future tasks
