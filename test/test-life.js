@@ -54,4 +54,23 @@ describe('life', function() {
         expect(eray.soulMate.getFullName()).to.equal("adriana arslan");
         done();
     });
+    it('sex', function(done) {
+        var eray = new life({
+            name : "eray",
+            surname : "arslan",
+            sex : "male"
+        });
+
+        var adriana = new life({
+            name : "adriana",
+            surname : "lima",
+            sex : "female"
+        });
+
+        eray.setSoulMate(adriana);
+        adriana.marriage();
+        eray.makeLove("masal");
+        expect(adriana.children[0].getFullName()).to.equal("masal arslan");
+        done();
+    });
 });

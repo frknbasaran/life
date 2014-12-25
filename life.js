@@ -7,12 +7,32 @@ var life = function(o) {
     // scope
     var that = this;
     // static
-    var version = "0.1.0";
+    var version = "0.1.1";
     // private
     var totalSec = 0;
     var timer;
     var time = function() {
         //
+    };
+    var random = function(from, to) {
+        return Math.floor((Math.random() * to) + from);
+    };
+    var baby = function(name, surname) {
+        var tempRandom = random(0,1);
+        var tempBaby;
+        if(tempRandom == 0) {
+            tempBaby = new life({
+                name : name,
+                surname : surname,
+                sex : "male"
+            });
+        } else {
+            tempBaby = new life({
+                name : name,
+                surname : surname,
+                sex : "female"
+            });
+        } return tempBaby;
     };
     // public
     this.name = o.name || "john";
@@ -55,8 +75,12 @@ var life = function(o) {
             throw new Error("u need human dude!");
         }
     };
-    this.makeLove /** f*ck **/ = function() {
-        // under construction
+    this.makeLove /** f*ck **/ = function(name) {
+        if(this.surname === this.soulMate.surname) {
+            this.children.push(baby(name, this.surname));
+        } else {
+            throw new Error("u need wife/husband!");
+        }
     };
     this.marriage = function() {
         if(this.sex === "female") {
