@@ -1,6 +1,7 @@
 /**
  * @module life
  * author eray arslan
+ * fuck coverage fuck fuck fuck
  */
 
 var life = function(o) {
