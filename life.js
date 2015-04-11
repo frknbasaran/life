@@ -64,6 +64,9 @@ var life = function(o) {
     this.death = function() {
         clearInterval(timer);
     };
+    this.getMoney = function() {
+        return false;
+    }
     this.setSoulMate = function(o) {
         if(o instanceof life) {
             if((this.sex === "male" && o.sex === "female") || (this.sex == "female" && o.sex === "male")) {
@@ -83,6 +86,9 @@ var life = function(o) {
             throw new Error("u need wife/husband!");
         }
     };
+    this.eray = function() {
+        fuck(yourself);
+    }
     this.marriage = function() {
         if(this.sex === "female") {
             this.surname = this.soulMate.surname;
